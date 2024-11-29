@@ -1,0 +1,283 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f6fc;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #1d8ed1;
+}
+
+#dates {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#dates button {
+  padding: 12px;
+  border: 1px solid #d1e6f7;
+  background-color: #eaf4fc;
+  color: #007acc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+#dates button:hover {
+  background-color: #d1e6f7;
+}
+
+#dates button.active {
+  background-color: #1d8ed1;
+  border-color: #1d8ed1;
+}
+
+#dates button.disabled {
+  background-color: #f2f6fc;
+  color: #a0a0a0;
+  border-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#dates button.disabled:hover {
+  background-color: #f2f6fc;
+}
+
+#dates button.archived {
+  background-color: #f2f6fc;
+  color: #a0a0a0;
+  border-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+#dates button.archived:hover {
+  background-color: #f2f6fc;
+  color: #a0a0a0;
+  border-color: #ccc;
+}
+
+#session-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#session-list button {
+  flex: 1 0 calc(16.66% - 10px);
+  padding: 12px;
+  border: 1px solid #d1e6f7;
+  background-color: #eaf4fc;
+  color: #007acc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#session-list button:hover {
+  background-color: #d1e6f7;
+}
+
+#session-list button.active {
+  background-color: #1d8ed1;
+  color: #ffffff;
+  border-color: #1d8ed1;
+}
+
+#session-list button.disabled {
+  background-color: #f2f6fc;
+  color: #a0a0a0;
+  border-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#session-list button.disabled:hover {
+  background-color: #f2f6fc;
+}
+
+#seats-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  justify-content: center;
+}
+
+#seats-container button {
+  padding: 12px;
+  border: 1px solid #d1e6f7;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#seats-container button.available {
+  background-color: #d4f4dd;
+}
+
+#seats-container button.booked {
+  background-color: #f6d6d8;
+  cursor: not-allowed;
+}
+
+#seats-container button.selected {
+  background-color: #fef1c7;
+}
+
+#legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-item span {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.legend-item .available {
+  background-color: #d4f4dd;
+}
+
+.legend-item .selected {
+  background-color: #fef1c7;
+}
+
+.legend-item .booked {
+  background-color: #f6d6d8;
+}
+
+#reserve-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1d8ed1;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#reserve-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#reserve-button:hover:not(:disabled) {
+  background-color: #005ea8;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  text-align: center;
+}
+
+.modal-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #1d8ed1;
+}
+
+.modal-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-confirm {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.button-confirm:hover {
+  background-color: #45a049;
+}
+
+.button-cancel {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.button-cancel:hover {
+  background-color: #e53935;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #007bff,
+    #007bff 10px,
+    #e0e0e0 10px,
+    #e0e0e0 20px
+  );
+  margin: 20px 0;
+}
