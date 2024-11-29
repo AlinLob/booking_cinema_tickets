@@ -8,7 +8,7 @@
 
 ### 1. Клонировать репозитории 
 ```bash
-git clone https://github.com/alinlob/booking_cinema_tickets.git
+git clone git@github.com:AlinLob/booking_cinema_tickets.git
 ```
 
 ### 2. Перейти в папку 
